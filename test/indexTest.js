@@ -1,42 +1,65 @@
-const chai = require('chai')
+const chai = require("chai");
 const expect = chai.expect;
-const fs = require('file-system')
-const jsdom = require('mocha-jsdom')
-const path = require('path')
-const babel = require('babel-core');
+const fs = require("file-system");
+const jsdom = require("mocha-jsdom");
+const path = require("path");
+const babel = require("babel-core");
 
-const js = fs.readFileSync(path.resolve(__dirname, '..', 'index.js'), 'utf-8')
+const js = fs.readFileSync(path.resolve(__dirname, "..", "index.js"), "utf-8");
 
-
-
-describe('index.js', function () {
-  describe('companyName', function () {
-    it('is set as Scuber', function () {
-      expect(companyName).to.equal('Scuber');
+describe("index.js", function () {
+  describe("companyName", function () {
+    it("is set as Scuber", function () {
+      expect(companyName).to.equal("Scuber");
     });
 
-    it('is defined as a const', function () {
-      expect(js).to.match(/const companyName/, "Expected companyName to be a const");
+    it("is defined as a const", function () {
+      expect(js).to.match(
+        /const companyName/,
+        "Expected companyName to be a const"
+      );
+    });
+  });
+  // testing area:
+  describe("newTest", function () {
+    describe("newTestName", function () {
+      it("is declare as newTestName", function () {
+        expect(newTestName).to.equal("Tesla");
+      });
+
+      it("is define with a const", function () {
+        expect(js).to.match(
+          /const newTestName/,
+          "Expect newTestName to be a const"
+        );
+      });
+    });
+  });
+  // testing
+
+  describe("mostProfitableNeighborhood", function () {
+    it("is declared as equal to Chelsea", function () {
+      expect(mostProfitableNeighborhood).to.equal("Chelsea");
+    });
+
+    it("is defined using let", function () {
+      expect(js).to.match(
+        /let mostProfitableNeighborhood/,
+        "Expected mostProfitableNeighborhood to be defined using let"
+      );
     });
   });
 
-  describe('mostProfitableNeighborhood', function () {
-    it('is declared as equal to Chelsea', function () {
-      expect(mostProfitableNeighborhood).to.equal('Chelsea');
+  describe("companyCeo", function () {
+    it("is declared as equal to Susan Smith", function () {
+      expect(companyCeo).to.equal("Susan Smith");
     });
 
-    it('is defined using let', function () {
-      expect(js).to.match(/let mostProfitableNeighborhood/, "Expected mostProfitableNeighborhood to be defined using let");
-    });
-  });
-
-  describe('companyCeo', function () {
-    it('is declared as equal to Susan Smith', function () {
-      expect(companyCeo).to.equal('Susan Smith');
-    });
-
-    it('is defined using let', function () {
-      expect(js).to.match(/let companyCeo/, "Expected companyCeo to be defined using let");
+    it("is defined using let", function () {
+      expect(js).to.match(
+        /let companyCeo/,
+        "Expected companyCeo to be defined using let"
+      );
     });
   });
 });
